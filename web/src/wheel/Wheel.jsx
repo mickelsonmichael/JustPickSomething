@@ -83,14 +83,18 @@ const Wheel = () => {
   return (
     <div className="wheel--container">
       <div className="wheel">
-        {segments.map((s, i) => (
-          <Segment
-            key={s}
-            text={s}
-            color={getColor(i)}
-            selected={current === i}
-          />
-        ))}
+        {segments.length > 0 ? (
+          segments.map((s, i) => (
+            <Segment
+              key={s}
+              text={s}
+              color={getColor(i)}
+              selected={current === i}
+            />
+          ))
+        ) : (
+          <span className="wheel__empty">Add some options</span>
+        )}
       </div>
 
       <WheelMenu

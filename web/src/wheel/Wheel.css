@@ -8,12 +8,19 @@
 .wheel {
   position: relative;
   min-height: 200px;
-  background-color: lightslategray;
   flex-direction: column;
   transform: translate3d(0, 0, 0);
   overflow: hidden;
   display: flex;
-  border: 6px solid slategray;
+  border: 6px solid #777;
+}
+
+.wheel__empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0.2;
+  transform: translate(-50%, -50%);
 }
 
 .wheel__segment {
@@ -24,7 +31,7 @@
   justify-content: center;
   flex-grow: 1;
   color: white;
-  border: 2px solid;
+  border: 4px solid;
 }
 
 .wheel__segment.selected {
