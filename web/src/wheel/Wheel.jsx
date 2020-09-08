@@ -1,6 +1,7 @@
 import React from "react";
 import Segment from "./Segment";
 import "./Wheel.css";
+import WheelMenu from "./WheelMenu";
 
 const colors = [
   "#f44336",
@@ -35,14 +36,12 @@ const getColor = (index) => {
 
 const Wheel = () => {
   const [segments, setSegments] = React.useState([]);
-  const [newSegment, setNewSegment] = React.useState("");
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = React.useState(null);
   const [isSpinning, setIsSpinning] = React.useState(false);
 
-  const handleAddSegment = (e) => {
-    if (newSegment && !segments.includes(newSegment)) {
-      setSegments([...segments, newSegment]);
-      setNewSegment("");
+  const handleAddSegment = (newOption) => {
+    if (newOption && !segments.includes(newOption)) {
+      setSegments([...segments, newOption]);
     }
   };
 
@@ -94,39 +93,14 @@ const Wheel = () => {
         ))}
       </div>
 
-      <div className="menu">
-        <button
-          type="button"
-          onClick={spin}
-          disabled={isSpinning || segments.length < 2}
-        >
-          Spin Me Right Round!
-        </button>
-
-        <p>&gt; {segments.length > 0 && segments[current]}</p>
-
-        <div className="menu__form">
-          <input
-            type="text"
-            placeholder="Enter option text"
-            value={newSegment}
-            onChange={(e) => setNewSegment(e.target.value)}
-          />
-          <button type="button" onClick={handleAddSegment}>
-            Add
-          </button>
-        </div>
-        <ul className="menu__segments">
-          {segments.map((s) => (
-            <li key={s}>
-              {s}{" "}
-              <button type="button" onClick={() => handleRemoveSegment(s)}>
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <WheelMenu
+        onOptionAdd={handleAddSegment}
+        onOptionRemove={handleRemoveSegment}
+        onGo={spin}
+        options={segments}
+        canSpin={!isSpinning && segments.length > 1}
+        selected={current}
+      />
     </div>
   );
 };

@@ -2,20 +2,18 @@
   height: 100%;
   padding: 1rem;
   display: flex;
+  flex-direction: column;
 }
 
 .wheel {
   position: relative;
   min-height: 200px;
-  width: 250px;
-  flex-grow: 0;
   background-color: lightslategray;
   flex-direction: column;
   transform: translate3d(0, 0, 0);
   overflow: hidden;
   display: flex;
   border: 6px solid slategray;
-  margin: 2rem;
 }
 
 .wheel__segment {
@@ -31,4 +29,26 @@
 
 .wheel__segment.selected {
   border-color: white !important;
+}
+
+.wheel__menu {
+  border: 1px solid slategray;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 600px) {
+  .wheel--container {
+    flex-direction: row;
+  }
+
+  .wheel {
+    flex-basis: 33%;
+  }
+
+  .wheel__menu {
+    flex-basis: 66%;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
 }
