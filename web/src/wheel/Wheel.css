@@ -1,0 +1,34 @@
+.wheel--container {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+}
+
+.wheel {
+  position: relative;
+  min-height: 200px;
+  width: 250px;
+  flex-grow: 0;
+  background-color: lightslategray;
+  flex-direction: column;
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+  display: flex;
+  border: 6px solid slategray;
+  margin: 2rem;
+}
+
+.wheel__segment {
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  color: white;
+  border: 2px solid;
+}
+
+.wheel__segment.selected {
+  border-color: white !important;
+}
