@@ -18,6 +18,13 @@ html {
   background-color: rgb(100, 60, 180);
   color: white;
   cursor: pointer;
+  border-radius: 3px;
+}
+
+.butt.butt-gray {
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(150, 150, 150);
+  color: #222;
 }
 
 .butt:hover {

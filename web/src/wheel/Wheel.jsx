@@ -10,35 +10,60 @@ const Wheel = ({
   options,
   onSegmentRemove,
   onOptionAdd,
+  onClear,
 }) => {
-  return (
-    <div className="wheel--container">
-      <div className="wheel">
-        {options.length > 0 ? (
-          options.map((s, i) => (
-            <Segment
-              key={s}
-              text={s}
-              color={getColor(i)}
-              onClick={() => onSegmentRemove(s)}
-            />
-          ))
-        ) : (
-          <div className="wheel__empty" />
-        )}
-      </div>
-      <Add onOptionAdd={onOptionAdd} />
+  let wheel;
 
-      {options.length > 1 && (
+  if (options.length < 1) {
+    wheel = <div className="wheel__empty" />;
+  } else {
+    const segments = (
+      <span className="wheel">
+        {options.map((s, i) => (
+          <Segment
+            key={s}
+            text={s}
+            color={getColor(i)}
+            onClick={() => onSegmentRemove(s)}
+          />
+        ))}
+      </span>
+    );
+
+    wheel = [segments, segments];
+  }
+
+  return (
+    <div className="container">
+      <div className="wheel--arrow" />
+      <div
+        className={isSpinning ? "wheel--container spin" : "wheel--container"}
+      >
+        {wheel}
+      </div>
+      <div className="wheel--controls">
+        <Add onOptionAdd={onOptionAdd} />
+
+        {onClear && (
+          <button
+            className="butt butt-gray"
+            type="reset"
+            onClick={onClear}
+            disabled={options.length < 2}
+          >
+            Clear
+          </button>
+        )}
+
         <button
-          class="butt butt-fancy"
+          className="butt"
           type="button"
           onClick={onSpin}
-          disabled={isSpinning}
+          disabled={isSpinning || options.length < 2}
         >
           {isSpinning ? "spinning" : "Spin"}
         </button>
-      )}
+      </div>
     </div>
   );
 };

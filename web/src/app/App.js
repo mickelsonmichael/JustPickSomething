@@ -16,6 +16,18 @@ export default hot(module)(() => {
     setOptions((opts) => opts.filter((o) => o != optionText));
   };
 
+  const handleSpin = () => {
+    setIsSpinning(true);
+
+    const time = (Math.random() * 3 + 1) * 1000;
+
+    setTimeout(() => setIsSpinning(false), time);
+  };
+
+  const handleClear = () => {
+    setOptions([]);
+  };
+
   return (
     <div className="app">
       <Header />
@@ -23,7 +35,8 @@ export default hot(module)(() => {
         isSpinning={isSpinning}
         options={options}
         onOptionAdd={handleOptionAdd}
-        onSpin={() => setIsSpinning(true)}
+        onSpin={handleSpin}
+        onClear={handleClear}
       />
     </div>
   );

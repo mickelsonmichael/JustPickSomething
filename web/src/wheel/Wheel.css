@@ -1,22 +1,47 @@
+.container {
+  position: relative;
+}
+
+.wheel--arrow {
+  position: relative;
+  text-align: center;
+  height: 0;
+  z-index: 30;
+}
+
+.wheel--arrow::after {
+  content: "";
+  display: inline-block;
+  border-top: 30px solid #fff;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  height: 0;
+  margin-left: -15px;
+}
+
 .wheel--container {
-  overflow: hidden;
-  margin: 1rem 0;
+  overflow-x: hidden;
+  white-space: nowrap;
+  margin: 0 0 1rem 0;
+  background-color: #eee;
+  color: #777;
+  border: 6px solid #fff;
+  border-left: none;
+  border-right: none;
+  margin-bottom: -1px;
+  height: 7rem;
+  position: relative;
+  z-index: 10;
+  animation: slide 0.2s linear infinite;
+  animation-play-state: paused;
 }
 
 .wheel {
-  position: relative;
-  overflow: hidden;
   width: 100vw;
   height: 7rem;
-  background-color: #eee;
-  color: #777;
-  display: flex;
+  display: inline-flex;
   align-items: stretch;
   justify-content: center;
-  border: 6px solid #777;
-  border-right: none;
-  border-left: none;
-  margin-bottom: -2px;
 }
 
 .wheel__empty {
@@ -40,20 +65,46 @@
   border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
-.wheel__menu-form {
+.wheel--container.spin {
+  animation-play-state: running;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -100%;
+  }
+}
+
+.wheel--controls {
+  z-index: 9;
+  position: relative;
   font-size: 16px;
   padding: 0.5rem;
   margin: 0 1rem;
-  border-radius: 0 0 2px 2px;
-  border: 1px solid #777;
-  display: inline-block;
-  border-top: none;
-  background-color: #444;
+  height: 3rem;
+  display: inline-flex;
+  align-items: stretch;
 }
 
-.wheel__menu-form input,
-.wheel__menu-form .butt {
+.wheel__menu-form {
+  display: flex;
+  align-items: stretch;
+}
+
+.wheel--controls input {
   padding: 0.5rem 1rem;
+}
+
+.wheel--controls .butt:not(:last-child),
+.wheel--controls form .butt {
+  margin-right: 0.5rem;
+}
+
+.wheel--controls .butt {
+  padding: 0.5rem 2rem;
 }
 
 .wheel__menu-form input {
@@ -62,37 +113,4 @@
 
 .wheel__menu-form .butt {
   font-size: inherit;
-}
-
-.wheel__menu-result {
-  font-weight: bold;
-  font-size: 18px;
-  display: block;
-  color: white;
-  border: 1px solid white;
-  background-color: purple;
-  background-image: repeating-linear-gradient(
-    -25deg,
-    transparent,
-    transparent 1rem,
-    #333 1rem,
-    #333 2rem
-  );
-  background-size: 200% 200%;
-  animation: barberpole 20s linear infinite;
-  padding: 1rem;
-}
-
-@keyframes barberpole {
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
-.butt-fancy {
-  font-size: 18px;
-  padding: 1rem 3rem;
-  border-radius: 0 0 2px 2px;
-  border-top: none;
-  text-transform: uppercase;
 }
