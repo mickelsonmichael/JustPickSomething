@@ -1,10 +1,5 @@
 html,
-body,
-#root,
-.app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+body {
   margin: 0;
   padding: 0;
 }
@@ -19,12 +14,18 @@ html {
 }
 
 .butt {
-  border: 1px solid rgb(143, 120, 183);
-  background-color: rgb(103, 58, 183);
+  border: 1px solid rgb(140, 120, 180);
+  background-color: rgb(100, 60, 180);
   color: white;
   cursor: pointer;
 }
 
 .butt:hover {
-  background-color: rgb(120, 86, 181);
+  background-color: rgb(110, 70, 190);
+}
+
+.butt:disabled {
+  background-color: rgb(80, 40, 160);
+  color: #ccc;
+  cursor: not-allowed;
 }

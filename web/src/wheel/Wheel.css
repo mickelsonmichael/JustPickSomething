@@ -1,30 +1,32 @@
 .wheel--container {
-  height: 100%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  margin: 1rem 0;
 }
 
 .wheel {
   position: relative;
-  min-height: 200px;
-  flex-direction: column;
-  transform: translate3d(0, 0, 0);
   overflow: hidden;
+  width: 100vw;
+  height: 7rem;
+  background-color: #eee;
+  color: #777;
   display: flex;
+  align-items: stretch;
+  justify-content: center;
   border: 6px solid #777;
+  border-right: none;
+  border-left: none;
+  margin-bottom: -2px;
 }
 
 .wheel__empty {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 0.2;
-  transform: translate(-50%, -50%);
+  width: 50vw;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-color: #ddd;
 }
 
 .wheel__segment {
-  overflow: hidden;
   text-align: center;
   display: flex;
   align-items: center;
@@ -34,28 +36,63 @@
   border: 4px solid;
 }
 
-.wheel__segment.selected {
-  border-color: white !important;
+.wheel__segment:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
-.wheel__menu {
-  border: 1px solid slategray;
+.wheel__menu-form {
+  font-size: 16px;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  border-radius: 0 0 2px 2px;
+  border: 1px solid #777;
+  display: inline-block;
+  border-top: none;
+  background-color: #444;
+}
+
+.wheel__menu-form input,
+.wheel__menu-form .butt {
+  padding: 0.5rem 1rem;
+}
+
+.wheel__menu-form input {
+  font-size: inherit;
+}
+
+.wheel__menu-form .butt {
+  font-size: inherit;
+}
+
+.wheel__menu-result {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  color: white;
+  border: 1px solid white;
+  background-color: purple;
+  background-image: repeating-linear-gradient(
+    -25deg,
+    transparent,
+    transparent 1rem,
+    #333 1rem,
+    #333 2rem
+  );
+  background-size: 200% 200%;
+  animation: barberpole 20s linear infinite;
   padding: 1rem;
-  margin-top: 1rem;
 }
 
-@media (min-width: 600px) {
-  .wheel--container {
-    flex-direction: row;
+@keyframes barberpole {
+  100% {
+    background-position: 100% 100%;
   }
+}
 
-  .wheel {
-    flex-basis: 33%;
-  }
-
-  .wheel__menu {
-    flex-basis: 66%;
-    margin-top: 0;
-    margin-left: 1rem;
-  }
+.butt-fancy {
+  font-size: 18px;
+  padding: 1rem 3rem;
+  border-radius: 0 0 2px 2px;
+  border-top: none;
+  text-transform: uppercase;
 }
