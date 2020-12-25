@@ -13,26 +13,6 @@ html {
   color: white;
 }
 
-.butt {
-  border: 1px solid rgb(140, 120, 180);
-  background-color: rgb(100, 60, 180);
-  color: white;
-  cursor: pointer;
+input {
   border-radius: 3px;
-}
-
-.butt.butt-gray {
-  border: 1px solid rgb(200, 200, 200);
-  background-color: rgb(150, 150, 150);
-  color: #222;
-}
-
-.butt:hover {
-  background-color: rgb(110, 70, 190);
-}
-
-.butt:disabled {
-  background-color: rgb(80, 40, 160);
-  color: #ccc;
-  cursor: not-allowed;
 }

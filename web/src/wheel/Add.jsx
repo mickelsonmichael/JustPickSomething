@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../common/button";
 
 const Add = ({ onOptionAdd }) => {
   const [optionInput, setOptionInput] = React.useState("");
@@ -17,9 +18,7 @@ const Add = ({ onOptionAdd }) => {
         value={optionInput}
         onChange={(e) => setOptionInput(e.target.value)}
       />
-      <button type="submit" className="butt">
-        Add
-      </button>
+      <Button type="submit">ADD</Button>
     </form>
   );
 };

@@ -3,6 +3,8 @@ import Segment from "./Segment";
 import Add from "./Add";
 import "./Wheel.css";
 import { getColor } from "../common/colorUtil";
+import Button from "../common/button";
+import Loading from "../common/loading";
 
 const Wheel = ({
   isSpinning,
@@ -45,24 +47,14 @@ const Wheel = ({
         <Add onOptionAdd={onOptionAdd} />
 
         {onClear && (
-          <button
-            className="butt butt-gray"
-            type="reset"
-            onClick={onClear}
-            disabled={options.length < 2}
-          >
-            Clear
-          </button>
+          <Button color="gray" onClick={onClear} disabled={options.length < 1}>
+            CLEAR
+          </Button>
         )}
 
-        <button
-          className="butt"
-          type="button"
-          onClick={onSpin}
-          disabled={isSpinning || options.length < 2}
-        >
-          {isSpinning ? "spinning" : "Spin"}
-        </button>
+        <Button onClick={onSpin} disabled={isSpinning || options.length < 2}>
+          {isSpinning ? <Loading /> : "SPIN"}
+        </Button>
       </div>
     </div>
   );
