@@ -20,3 +20,9 @@ html {
 input {
   border-radius: 3px;
 }
+
+.info {
+  margin: 0 1rem;
+  font-size: 18px;
+  color: #ddd;
+}
