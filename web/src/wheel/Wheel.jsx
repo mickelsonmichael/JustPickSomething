@@ -17,7 +17,7 @@ const Wheel = ({
   let wheel;
 
   if (options.length < 1) {
-    wheel = <div className="wheel__empty" />;
+    wheel = <div className="wheel__empty">ENTER AT LEAST TWO OPTIONS</div>;
   } else {
     const segments = (
       <span className="wheel">
