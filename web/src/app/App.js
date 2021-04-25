@@ -38,11 +38,6 @@ export default hot(module)(() => {
         onSpin={handleSpin}
         onClear={handleClear}
       />
-
-      <p className="info">
-        Enter in at least two options, then click "SPIN" to spin the wheel and
-        have all your decisions made for you
-      </p>
     </div>
   );
 });

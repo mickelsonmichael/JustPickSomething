@@ -3,26 +3,57 @@
 }
 
 html,
+body,
+#root,
+.app {
+  height: 100%;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
 }
 
 html {
-  background-color: #2f2f2f;
+  background-color: #222;
+}
+
+#root {
+  padding: 0.6rem 1rem;
 }
 
 .app {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-}
-
-input {
-  border-radius: 3px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 850px;
 }
 
 .info {
   margin: 0 1rem;
   font-size: 18px;
   color: #ddd;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.butt {
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 700px) {
+  .app {
+    box-shadow: 0 0 5px 0 #666;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    background-color: #444;
+  }
 }
