@@ -26,10 +26,6 @@ html {
   grid-template-rows: auto 1fr auto;
 }
 
-input {
-  border-radius: 3px;
-}
-
 .info {
   margin: 0 1rem;
   font-size: 18px;
@@ -39,4 +35,8 @@ input {
 .container {
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.butt {
+  padding: 0.5rem 1rem;
 }

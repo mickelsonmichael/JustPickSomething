@@ -47,15 +47,17 @@ const Wheel = ({
       <div className="wheel--controls">
         <Add onOptionAdd={onOptionAdd} />
 
-        {onClear && (
-          <Button color="gray" onClick={onClear} disabled={options.length < 1}>
-            CLEAR
-          </Button>
-        )}
+        <div className="wheel--controls__buttons">
+          {onClear && (
+            <Button color="gray" onClick={onClear} disabled={options.length < 1}>
+              CLEAR
+            </Button>
+          )}
 
-        <Button onClick={onSpin} disabled={isSpinning || options.length < 2}>
-          {isSpinning ? <Loading /> : "SPIN"}
-        </Button>
+          <Button onClick={onSpin} disabled={isSpinning || options.length < 2}>
+            {isSpinning ? <Loading /> : "SPIN"}
+          </Button>
+        </div>
       </div>
     </div>
   );

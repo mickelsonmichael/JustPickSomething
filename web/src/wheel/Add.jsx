@@ -18,7 +18,7 @@ const Add = ({ onOptionAdd }) => {
         value={optionInput}
         onChange={(e) => setOptionInput(e.target.value)}
       />
-      <Button type="submit">ADD</Button>
+      <Button type="submit">+</Button>
     </form>
   );
 };
