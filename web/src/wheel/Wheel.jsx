@@ -22,13 +22,13 @@ const Wheel = ({
   } else {
     const segments = (
       optionsWithColors.map((s) => (
-          <Segment
-            key={s.text}
-            text={s.text}
-            color={s.color}
-            onClick={onSegmentRemove}
-          />
-    )));
+        <Segment
+          key={s.text}
+          text={s.text}
+          color={s.color}
+          onClick={onSegmentRemove}
+        />
+      )));
 
     wheel = [
       <span key="wheel-1" className="wheel">{segments}</span>,
@@ -37,12 +37,14 @@ const Wheel = ({
   }
 
   return (
-    <div className="container">
-      <div className="wheel--arrow" />
-      <div
-        className={isSpinning ? "wheel--container spin" : "wheel--container"}
-      >
-        {wheel}
+    <>
+      <div className="container">
+        <div className="wheel--arrow" />
+        <div
+          className={isSpinning ? "wheel--container spin" : "wheel--container"}
+        >
+          {wheel}
+        </div>
       </div>
       <div className="wheel--controls">
         <Add onOptionAdd={onOptionAdd} />
@@ -59,7 +61,7 @@ const Wheel = ({
           </Button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -16,7 +16,11 @@ body {
 }
 
 html {
-  background-color: #2f2f2f;
+  background-color: #222;
+}
+
+#root {
+  padding: 0.6rem 1rem;
 }
 
 .app {
@@ -24,6 +28,9 @@ html {
   color: white;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 850px;
 }
 
 .info {
@@ -39,4 +46,14 @@ html {
 
 .butt {
   padding: 0.5rem 1rem;
+}
+
+@media (min-width: 700px) {
+  .app {
+    box-shadow: 0 0 5px 0 #666;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    background-color: #444;
+  }
 }
