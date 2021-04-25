@@ -15,24 +15,25 @@ const Wheel = ({
   onClear,
 }) => {
   let wheel;
+  const optionsWithColors = options.map((o, i) => ({ text: o, color: getColor(i) }));
 
   if (options.length < 1) {
     wheel = <div className="wheel__empty">ENTER AT LEAST TWO OPTIONS</div>;
   } else {
     const segments = (
-      <span className="wheel">
-        {options.map((s, i) => (
+      optionsWithColors.map((s) => (
           <Segment
-            key={s}
-            text={s}
-            color={getColor(i)}
-            onClick={() => onSegmentRemove(s)}
+            key={s.text}
+            text={s.text}
+            color={s.color}
+            onClick={onSegmentRemove}
           />
-        ))}
-      </span>
-    );
+    )));
 
-    wheel = [segments, segments];
+    wheel = [
+      <span key="wheel-1" className="wheel">{segments}</span>,
+      <span key="wheel-2" className="wheel">{segments}</span>
+    ]
   }
 
   return (

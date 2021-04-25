@@ -3,6 +3,13 @@
 }
 
 html,
+body,
+#root,
+.app {
+  height: 100%;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +22,8 @@ html {
 .app {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 input {
@@ -25,4 +34,9 @@ input {
   margin: 0 1rem;
   font-size: 18px;
   color: #ddd;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }

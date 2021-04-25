@@ -26,13 +26,12 @@
   background-color: #888;
   color: #777;
   border: 6px solid #fff;
-  height: 7rem;
   position: relative;
 }
 
 .wheel {
   width: 100%;
-  height: calc(7rem - (2 * 6px));
+  height: 100%;
   display: inline-flex;
   position: relative;
 
