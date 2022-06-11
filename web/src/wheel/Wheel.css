@@ -1,8 +1,14 @@
+.wheel-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  flex: 1 1 auto;
 }
 
 .wheel--arrow {
@@ -86,6 +92,7 @@
 .wheel--controls {
   font-size: 16px;
   padding: 0.5rem 0;
+  flex: 0 1 auto;
 }
 
 .wheel--controls form {
@@ -115,4 +122,14 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 1rem;
   margin: .5rem 0 0 0;
+}
+
+@media (min-width: 700px) {
+  .wheel-wrapper {
+    box-shadow: 0 0 5px 0 #666;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    background-color: #444;
+  }
 }

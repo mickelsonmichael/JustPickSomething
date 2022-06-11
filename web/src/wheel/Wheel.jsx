@@ -37,7 +37,7 @@ const Wheel = ({
   }
 
   return (
-    <>
+    <div className="wheel-wrapper">
       <div className="container">
         <div className="wheel--arrow" />
         <div
@@ -61,7 +61,7 @@ const Wheel = ({
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

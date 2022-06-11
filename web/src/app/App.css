@@ -47,13 +47,3 @@ html {
 .butt {
   padding: 0.5rem 1rem;
 }
-
-@media (min-width: 700px) {
-  .app {
-    box-shadow: 0 0 5px 0 #666;
-    border-radius: 3px;
-    border: 1px solid #aaa;
-    padding: 0.5rem 1rem;
-    background-color: #444;
-  }
-}
