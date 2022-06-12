@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const LegendPortrait = ({ onClick, banned, legend, picked }) => {
-    const src = `images/legends/${legend}.png`
+    const src = `images/legends/${legend}_cropped.png`
 
     return (
         <div

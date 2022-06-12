@@ -1,6 +1,9 @@
 .wheel-wrapper {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  max-height: 850px;
+  margin: 0 auto;
 }
 
 .container {
@@ -84,6 +87,7 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-100%);
   }
@@ -107,7 +111,7 @@
   border-right: none;
 }
 
-.wheel--controls > form > .butt {
+.wheel--controls>form>.butt {
   padding: 0.5rem 1rem;
   border-radius: 0 3px 3px 0;
 }
