@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+// const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -19,7 +19,7 @@ module.exports = {
             options: {
               presets: ["@babel/env"],
               plugins: [
-                isDev && require.resolve("react-refresh/babel")
+                // isDev && require.resolve("react-refresh/babel")
               ]
             }
           }
@@ -52,6 +52,6 @@ module.exports = {
       template: path.resolve(__dirname, "public/index.html"),
       filename: "index.html",
     }),
-    isDev && new ReactRefreshWebpackPlugin()
+    // isDev && new ReactRefreshWebpackPlugin()
   ],
 };
