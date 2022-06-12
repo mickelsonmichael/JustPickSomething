@@ -2,6 +2,10 @@ import { useState } from "react";
 
 import Legends from "./legends.json";
 
+const imageContext = require.context("../../public/images/legends", false, /_cropped\.png$/i);
+
+imageContext.keys().forEach(imageContext);
+
 const randomLegend = (legends) => legends[Math.floor(Math.random() * legends.length)];
 
 const useLegends = () => {

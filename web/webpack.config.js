@@ -29,6 +29,20 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /legends.*\.(png|svg|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/legends/[name].[ext]",
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+          }
+        ],
+      } 
     ],
   },
   resolve: {
