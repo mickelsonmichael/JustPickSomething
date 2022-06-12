@@ -38,7 +38,9 @@ const useLegends = () => {
 
         if (avail.length === 1) {
             setState(s => ({
-                ...s, picked: Legends.indexOf(avail[0])
+                ...s,
+                picked: Legends.indexOf(avail[0]),
+                isPicking: false,
             }))
 
             return;
