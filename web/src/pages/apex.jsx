@@ -1,7 +1,8 @@
 import React from "react";
+import Apex from "../apex";
 
 const ApexPage = () => (
-    <div>Apex</div>
+    <Apex />
 );
 
 export default ApexPage;

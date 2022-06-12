@@ -12,7 +12,11 @@ footer ul {
 }
 
 footer li {
-    margin: 0 4px;
+    padding: 0 1rem;
+}
+
+footer li:not(:last-child) {
+    border-right: 2px solid #666;
 }
 
 footer li a {
