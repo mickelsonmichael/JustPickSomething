@@ -26,6 +26,10 @@
     -webkit-user-drag: none;
 }
 
+.legend-wrapper.hovered {
+    box-shadow: 0 0 10px -1px rgb(49, 247, 247);
+}
+
 .legend-wrapper.banned:before {
     opacity: 0.2;
     background-color: red;
@@ -37,6 +41,7 @@
     display: block;
     content: '';
 }
+
 
 .legend-wrapper.picked {
     box-shadow: gold 0 0 40px -10px;

@@ -1,52 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import LegendPortrait from "./LegendPortrait";
 
-import Legends from "./legends.json";
 import "./Apex.css";
-
-const randomLegend = (legends) => legends[Math.floor(Math.random() * legends.length)];
+import useLegends from "./useLegends";
 
 const Apex = () => {
-    const [banned, setBanned] = useState([]);
-    const [picked, setPicked] = useState(null);
-
-    const toggle = (l) => banned.includes(l)
-        ? setBanned(b => [...b.slice(0, b.indexOf(l)), ...b.slice(b.indexOf(l) + 1)])
-        : setBanned(b => [...b, l]);
-
-    const pickRandom = () => {
-        const avail = Legends.filter(l => !banned.includes(l));
-
-        if (avail.length === 1) {
-            setPicked(Legends.indexOf(avail[0]));
-        }
-
-        const toPick = randomLegend(avail);
-
-        setPicked(Legends.indexOf(toPick));
-    }
-
-    const reset = () => setPicked(null);
+    const {
+        reset,
+        pickRandom,
+        toggleBanned,
+        hovered,
+        banned,
+        picked,
+        isPicking,
+        legends,
+    } = useLegends();
 
     return (
         <div className="apex">
-            {picked
+            {picked != null
                 ? <button className="apex-button reset" onClick={reset}>Reset</button>
-                : <button className="apex-button" onClick={pickRandom} disabled={Legends.length === banned.length}>Pick</button>
+                : <button className="apex-button" onClick={pickRandom} disabled={legends.length === banned.length || isPicking}>Pick</button>
             }
-
             <div className="legends">
-                {picked ? (<div>
-                    <LegendPortrait legend={Legends[picked]} picked />
+                {picked != null ? (<div>
+                    <LegendPortrait legend={legends[picked]} picked />
                 </div>) :
                     <>
-                        {Legends.map((l, i) => (
+                        {legends.map((l, i) => (
                             <LegendPortrait
                                 key={l}
                                 legend={l}
                                 banned={banned.includes(l)}
-                                picked={picked && i === picked}
-                                onClick={() => toggle(l)}
+                                picked={picked != null && i === picked}
+                                hovered={hovered != null && i === hovered}
+                                onClick={() => toggleBanned(l)}
                             />
                         ))}
                     </>}
