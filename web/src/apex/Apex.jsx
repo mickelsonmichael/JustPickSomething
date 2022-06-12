@@ -34,7 +34,9 @@ const Apex = () => {
                                 banned={banned.includes(l)}
                                 picked={picked != null && i === picked}
                                 hovered={hovered != null && i === hovered}
-                                onClick={() => toggleBanned(l)}
+                                onClick={() => {
+                                    if (!isPicking) toggleBanned(l)
+                                }}
                             />
                         ))}
                     </>}
