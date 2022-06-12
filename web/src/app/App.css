@@ -29,17 +29,13 @@ html {
   display: grid;
   grid-template-rows: auto 1fr auto;
   margin: 0 auto;
+  justify-items: center;
 }
 
 .info {
   margin: 0 1rem;
   font-size: 18px;
   color: #ddd;
-}
-
-.container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
 }
 
 .butt {

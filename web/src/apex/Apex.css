@@ -42,7 +42,7 @@
     box-shadow: gold 0 0 40px -10px;
 }
 
-button {
+.apex-button {
     z-index: 100;
     position: relative;
     padding: 0.5rem 5rem;
@@ -56,7 +56,13 @@ button {
     margin-bottom: 1rem;
 }
 
-button.reset {
+.apex-button:disabled {
+    background: rgb(50, 70, 150);
+    color: whitesmoke;
+    cursor: not-allowed;
+}
+
+.apex-button.reset {
     background: rgb(133, 22, 22);
 }
 

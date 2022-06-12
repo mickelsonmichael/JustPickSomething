@@ -31,8 +31,8 @@ const Apex = () => {
     return (
         <div className="apex">
             {picked
-                ? <button className="reset" onClick={reset}>Reset</button>
-                : <button onClick={pickRandom} disabled={Legends.length === banned.length}>Pick</button>
+                ? <button className="apex-button reset" onClick={reset}>Reset</button>
+                : <button className="apex-button" onClick={pickRandom} disabled={Legends.length === banned.length}>Pick</button>
             }
 
             <div className="legends">
