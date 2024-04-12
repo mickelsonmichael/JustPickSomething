@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Route, Routes } from "react-router";
 
 import Header from "../common/Header";
@@ -11,14 +11,14 @@ import "./App.css";
 
 const App = () => (
   <div className="app">
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/" element={<WheelPage />} />
         <Route path="/apex" element={<ApexPage />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   </div>
 );
 
