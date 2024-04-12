@@ -5,6 +5,7 @@ import "./Wheel.css";
 import { getColor } from "../common/colorUtil";
 import Button from "../common/button";
 import Loading from "../common/loading";
+import useShare from "./useShare";
 
 const Wheel = ({
   isSpinning,
@@ -15,25 +16,33 @@ const Wheel = ({
   onClear,
 }) => {
   let wheel;
-  const optionsWithColors = options.map((o, i) => ({ text: o, color: getColor(i) }));
+
+  const optionsWithColors = options.map((o, i) => ({
+    text: o,
+    color: getColor(i),
+  }));
+  const [isCopied, share] = useShare(options);
 
   if (options.length < 1) {
     wheel = <div className="wheel__empty">ENTER AT LEAST TWO OPTIONS</div>;
   } else {
-    const segments = (
-      optionsWithColors.map((s) => (
-        <Segment
-          key={s.text}
-          text={s.text}
-          color={s.color}
-          onClick={onSegmentRemove}
-        />
-      )));
+    const segments = optionsWithColors.map((s) => (
+      <Segment
+        key={s.text}
+        text={s.text}
+        color={s.color}
+        onClick={onSegmentRemove}
+      />
+    ));
 
     wheel = [
-      <span key="wheel-1" className="wheel">{segments}</span>,
-      <span key="wheel-2" className="wheel">{segments}</span>
-    ]
+      <span key="wheel-1" className="wheel">
+        {segments}
+      </span>,
+      <span key="wheel-2" className="wheel">
+        {segments}
+      </span>,
+    ];
   }
 
   return (
@@ -50,8 +59,16 @@ const Wheel = ({
         <Add onOptionAdd={onOptionAdd} />
 
         <div className="wheel--controls__buttons">
+          <Button onClick={share} color="gray">
+            {isCopied ? "COPIED" : "SHARE"}
+          </Button>
+
           {onClear && (
-            <Button color="gray" onClick={onClear} disabled={options.length < 1}>
+            <Button
+              color="gray"
+              onClick={onClear}
+              disabled={options.length < 1}
+            >
               CLEAR
             </Button>
           )}
