@@ -1,41 +1,43 @@
 import React from "react";
 
 import Wheel from "../wheel";
+import useOptions from "../utils/useOptions";
 
 const WheelPage = () => {
-    const [options, setOptions] = React.useState([]);
-    const [isSpinning, setIsSpinning] = React.useState(false);
+  const [options, setOptions] = useOptions();
 
-    const handleOptionAdd = (optionText) => {
-        setOptions((opts) => [...opts, optionText]);
-    };
+  const [isSpinning, setIsSpinning] = React.useState(false);
 
-    const handleOptionRemove = (optionText) => {
-        setOptions((opts) => opts.filter((o) => o != optionText));
-    };
+  const handleOptionAdd = (optionText) => {
+    setOptions((opts) => [...opts, optionText]);
+  };
 
-    const handleSpin = () => {
-        setIsSpinning(true);
+  const handleOptionRemove = (optionText) => {
+    setOptions((opts) => opts.filter((o) => o != optionText));
+  };
 
-        const time = (Math.random() * 3 + 1) * 1000;
+  const handleSpin = () => {
+    setIsSpinning(true);
 
-        setTimeout(() => setIsSpinning(false), time);
-    };
+    const time = (Math.random() * 3 + 1) * 1000;
 
-    const handleClear = () => {
-        setOptions([]);
-    };
+    setTimeout(() => setIsSpinning(false), time);
+  };
 
+  const handleClear = () => {
+    setOptions([]);
+  };
 
-    return (
-        <Wheel
-            isSpinning={isSpinning}
-            options={options}
-            onOptionAdd={handleOptionAdd}
-            onSpin={handleSpin}
-            onClear={handleClear}
-        />
-    );
-}
+  return (
+    <Wheel
+      isSpinning={isSpinning}
+      options={options}
+      onOptionAdd={handleOptionAdd}
+      onSegmentRemove={handleOptionRemove}
+      onSpin={handleSpin}
+      onClear={handleClear}
+    />
+  );
+};
 
 export default WheelPage;
