@@ -12,8 +12,8 @@ const WheelPage = () => {
     setOptions((opts) => [...opts, optionText]);
   };
 
-  const handleOptionRemove = (optionText) => {
-    setOptions((opts) => opts.filter((o) => o != optionText));
+  const handleOptionRemove = (i) => {
+    setOptions((opts) => [...opts.slice(0, i), ...opts.slice(i + 1)]);
   };
 
   const handleSpin = () => {

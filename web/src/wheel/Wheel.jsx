@@ -26,14 +26,18 @@ const Wheel = ({
   if (options.length < 1) {
     wheel = <div className="wheel__empty">ENTER AT LEAST TWO OPTIONS</div>;
   } else {
-    const segments = optionsWithColors.map((s) => (
-      <Segment
-        key={s.text}
-        text={s.text}
-        color={s.color}
-        onClick={onSegmentRemove}
-      />
-    ));
+    const segments = optionsWithColors.map((s, i) => {
+      const id = `${s}-${i}`;
+
+      return (
+        <Segment
+          key={id}
+          text={s.text}
+          color={s.color}
+          onClick={() => onSegmentRemove(i)}
+        />
+      );
+    });
 
     wheel = [
       <span key="wheel-1" className="wheel">
